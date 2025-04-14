@@ -11,10 +11,15 @@
 
 ### Benchmarking and Fine-Tuning LLMs
 [Fine-Tuning LLMs: A Guide With Examples](https://www.datacamp.com/tutorial/fine-tuning-large-language-models)
+
 [20 LLM evaluation benchmarks and how they work](https://www.evidentlyai.com/llm-guide/llm-benchmarks)
+
 [RAG vs Fine-Tuning: A Comprehensive Tutorial with Practical Examples](http://datacamp.com/tutorial/rag-vs-fine-tuning)
+
 [Fine-Tuning LLMs: A Guide With Examples](https://www.datacamp.com/tutorial/fine-tuning-large-language-models)
+
 [The OpenAI API in Python](https://www.datacamp.com/cheat-sheet/the-open-ai-api-in-python)
+
 [Efficiently Training Transformers: A Comprehensive Guide to High-Performance NLP Models](https://www.e2enetworks.com/blog/efficiently-training-transformers-a-comprehensive-guide-to-high-performance-nlp-models)
 
 ### Multilingual NLP
