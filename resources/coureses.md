@@ -1,4 +1,7 @@
 ## Courses  
+
+--
+
 - [HuggingFace NLP Course](https://huggingface.co/learn/nlp-course)  
 - [Stanford CS224N](https://web.stanford.edu/class/cs224n/)
 

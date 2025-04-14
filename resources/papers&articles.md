@@ -1,5 +1,7 @@
 ## Papers and Articles
 
+---
+
 ### Transformer Architecture:
 - [How Transformers work in deep learning and NLP: an intuitive introduction](https://theaisummer.com/transformer/)
 
