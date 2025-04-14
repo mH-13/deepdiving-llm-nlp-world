@@ -7,4 +7,4 @@
 
 
 ### HuggingFace
-[Hugging Face NLP course introduction](https://huggingface.co/learn/llm-course/en/chapter0/1)
+- [Hugging Face NLP course introduction](https://huggingface.co/learn/llm-course/en/chapter0/1)
