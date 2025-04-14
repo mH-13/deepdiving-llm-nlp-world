@@ -1,0 +1,157 @@
+# Masterplan for Interview Preparation
+
+---
+
+## 1. Understand Core NLP Concepts
+
+### **Key Topics**
+
+- **What is NLP?**  
+  NLP (Natural Language Processing) is a branch of AI focused on enabling computers to interpret, generate, and learn human language.
+
+  - _Example_:
+    - **Text Classification**: Spam detection in emails.
+    - **Machine Translation**: Google Translate converting text from one language to another.
+
+- **Common NLP Tasks**:
+
+  - **NLU (Natural Language Understanding)**:
+    - Tasks: Sentiment analysis, Named Entity Recognition (NER).
+    - _Example_: Classifying "I love this movie!" as positive sentiment.
+  - **NLG (Natural Language Generation)**:
+    - Tasks: Text summarization, chatbots.
+    - _Example_: GPT-3 writing an essay.
+
+- **Tokenization, Embeddings, Attention**:
+  - **Tokenization**: Splitting text into words or subwords (e.g., BERT uses WordPiece).
+  - **Embeddings**: Converting words into vectors (e.g., Word2Vec, BERT embeddings).
+  - **Attention**: Mechanism that focuses on the most relevant parts of the input.
+    - _Example_: In the sentence “She ate the pizza with **pepperoni**,” the word "pepperoni" gets higher attention.
+
+---
+
+## 2. Master Transformer Architecture & Optimization
+
+### **A. Transformer Basics**
+
+- **Why Transformers?**  
+  They solve many limitations of RNNs/CNNs, such as handling long-term dependencies and enabling parallel processing.
+- **Self-Attention Mechanism**:
+
+  - **Formula**:
+    ```
+    Attention(Q, K, V) = softmax((QKᵀ) / √d_k) V
+    ```
+  - _Example_: In “The cat sat on the mat”, self-attention links "cat" with "sat" and "mat".
+
+- **Encoder-Decoder Structure**:
+  - **Encoder**: Processes the input (used in models like BERT).
+  - **Decoder**: Generates the output (used in models like GPT).
+
+### **B. Optimization Techniques**
+
+- **Model Pruning**:  
+  Removing less important neurons/attention heads.
+
+  - _Example_: Pruning 20% of BERT’s attention heads to reduce model size.
+
+- **Quantization**:  
+  Reducing numerical precision (e.g., 32-bit to 8-bit) to compress the model.
+
+  - _Example_: Lowering precision for mobile deployment.
+
+- **Knowledge Distillation**:  
+  Training a smaller “student” model to mimic a larger “teacher” model.
+
+  - _Example_: DistilBERT achieves similar performance to BERT with 40% fewer parameters.
+
+- **Mixed Precision Training**:  
+  Using a mix of FP16 and FP32 to speed up training.
+
+---
+
+## 3. Learn LLM Fine-tuning & Benchmarking
+
+### **A. Fine-tuning LLMs**
+
+- **Transfer Learning**:  
+  Start with a pre-trained model (e.g., BERT) and adapt it for a new task.
+
+  - _Example_: Fine-tuning BERT on medical texts for disease prediction.
+
+- **Steps**:
+  1. **Load Pre-trained Weights**:
+     ```python
+     from transformers import BertModel
+     model = BertModel.from_pretrained('bert-base-uncased')
+     ```
+  2. **Add Task-Specific Layers**:  
+     (e.g., a classifier head)
+  3. **Train on a Custom Dataset**
+
+### **B. Benchmarking**
+
+- **Evaluation Metrics**:
+
+  - **BLEU**: For translation (measures n-gram overlap).
+  - **ROUGE**: For summarization (recall of key phrases).
+  - **Perplexity**: For language models (lower is better).
+
+- **Multilingual Challenges**:
+  - _Example_: A model may perform well in English but poorly in Bengali if there’s a data scarcity.
+
+---
+
+## 4. Practice Python/PyTorch & HuggingFace
+
+### **A. PyTorch Basics**
+
+- **Tensors**:
+  ```python
+  import torch
+  x = torch.tensor([1, 2, 3])
+  ```
+
+# Training Loop:
+
+optimizer = torch.optim.Adam(model.parameters(), lr=1e-5)
+loss_fn = torch.nn.CrossEntropyLoss()
+
+```python
+for epoch in range(10):
+      outputs = model(inputs)
+      loss = loss_fn(outputs, labels)
+      loss.backward()
+      optimizer.step()
+```
+
+# B. HuggingFace Transformers
+
+Using Pre-trained Models:
+
+```python
+from transformers import BertTokenizer, BertModel
+tokenizer = BertTokenizer.from_pretrained('bert-base-uncased')
+model = BertModel.from_pretrained('bert-base-uncased')
+
+inputs = tokenizer("Hello, world!", return_tensors="pt")
+outputs = model(**inputs)
+```
+
+# Fine-tuning with Trainer:
+
+```python
+from transformers import Trainer, TrainingArguments
+
+training_args = TrainingArguments(
+    output_dir="./results",
+    per_device_train_batch_size=4
+)
+trainer = Trainer(
+    model=model,
+    args=training_args,
+    train_dataset=dataset
+)
+
+trainer.train()
+```
